@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
-import { trLanguage } from '../language';
+// import { trLanguage } from '../language';
 export default class CategoryList extends Component {
   state = {
     categories: []
@@ -22,7 +22,7 @@ export default class CategoryList extends Component {
         <h3>{this.props.info.title}</h3>
         <ListGroup>
           {this.state.categories.map((category) => (
-            <ListGroupItem
+            <ListGroupItem active={category.categoryName===this.props.currentCategory?true:false}
               onClick={() => this.props.changeCategory(category)}
               key={category.id}
             >
@@ -30,7 +30,7 @@ export default class CategoryList extends Component {
             </ListGroupItem>
           ))}
         </ListGroup>
-        <h4>{this.props.currentCategory}</h4>
+        {/* <h4>{this.props.currentCategory}</h4> */}
       </div>
     );
   }

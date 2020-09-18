@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 
 export default class ProductList extends Component {
+
   render() {
     return (
       <div>
-        <h3>{this.props.info.title}--{this.props.currentCategory}</h3>
+        <h3>{this.props.info.title}-{this.props.currentCategory}</h3>
         <Table>
           <thead>
             <tr>
@@ -14,6 +15,7 @@ export default class ProductList extends Component {
               <th>Quantity Per Unit</th>
               <th>Unit Price</th>
               <th>Units In Stock</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -24,11 +26,12 @@ export default class ProductList extends Component {
                 <td>{products.quantityPerUnit}</td>
                 <td>{products.unitPrice}</td>
                 <td>{products.unitsInStock}</td>
+                <td><Button onClick={() => this.props.addToCart(products)} outline color="info">add</Button></td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
     );
-  }
+  }    
 }
